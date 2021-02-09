@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Search from "./Search";
 
-function Header() {
+function Header({setSearch, sorted, setSorted}) {
+
+  
+
+  const handleSort = () => {
+    setSorted(!sorted)
+  }
+
+  console.log(sorted)
+
   return (
     <header>
       <h1>
@@ -10,7 +19,11 @@ function Header() {
         </span>
         gregslist
       </h1>
-      <Search />
+      <Search onSearch={setSearch} />
+      {/* <button onClick={handleSort}>Sort By Location</button> */}
+      <h2>Sort By Location</h2>
+      <br></br><br></br>
+      <input onChange={handleSort} type="checkbox" ></input>
     </header>
   );
 }
